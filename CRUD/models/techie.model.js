@@ -7,11 +7,14 @@ let techieSchema=mongoose.Schema({
     experience:{
         type:Number
     },
-    comercials:{
+    commercials:{
         type:Number
     },
     expert:{
         type:String
+    },
+    contact:{
+        type:Number
     }
 });
 
