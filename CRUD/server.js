@@ -9,7 +9,11 @@ let path=require('path')
 let bparser=require('body-parser')
 
 app.set('views',path.join(__dirname+'/view/'))
-app.engine('hbs',handle({extname:'hbs',defaultLayout:'homeLayout',layoutsDir:__dirname+'/view/layout/'}))
+app.engine('hbs',handle({extname:'hbs',defaultLayout:'homeLayout',layoutsDir:__dirname+'/view/layout/',
+runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true,}
+}))
 app.set('view engine','hbs')
 
 app.use(bparser.urlencoded({
