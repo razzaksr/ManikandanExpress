@@ -3,7 +3,16 @@ require('./models/db')
 let express=require('express')
 
 let app=express()
+
+// web page controller
 let control=require('./controller/TechieController')
+
+// rest web service controller
+const rest=require('./controller/RestController')
+app.use('/service',rest)
+
+app.use(express.json())
+
 let handle=require('express-handlebars')
 let path=require('path')
 let bparser=require('body-parser')
@@ -20,7 +29,7 @@ app.use(bparser.urlencoded({
     extended:true
 }));
 
-app.use(bparser.json())
+app.use(bparser.json()) 
 
 app.get('/',(req,res)=>{
     res.send("Just");
