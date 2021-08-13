@@ -1,8 +1,10 @@
 require('./models/db')
 
 let express=require('express')
+let cors=require('cors')
 
 let app=express()
+app.use(cors)
 
 // web page controller
 let control=require('./controller/TechieController')

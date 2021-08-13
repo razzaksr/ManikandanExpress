@@ -1,11 +1,13 @@
 require('./models/db')
 const express=require('express')
+const cors=require('cors')
 const rest=require('./controller/restController')
 
 const app=express()
 app.use(express.json())
+app.use(cors())
 
 
 app.use('/service',rest)
 
-app.listen(3000)
+app.listen(8000)

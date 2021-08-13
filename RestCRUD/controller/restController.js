@@ -3,8 +3,6 @@ const router=express.Router()
 const mongoose=require('mongoose')
 const model=mongoose.model('techie')
 
-mongoose.set('useFindAndModify', false);
-
 // List
 router.get('/',async (req,res)=>{
     //res.send('hi connected')
@@ -22,13 +20,14 @@ router.post('/',async (req,res)=>{
         commercials:req.body.commercials
     })
     const data=await tec.save()
-    res.json(data)
+    res.json(data.fullname+" has added")
 })
 
 //Update
 router.put('/',async (req,res)=>{
-    
-    const data=await model.findOneAndUpdate(id=req.body._id,req.body,{new:true})
+    console.log(req.body)
+    //const data=await model.findOneAndUpdate(id=req.body._id,req.body,{new:true})
+    const data=await model.updateOne({_id:req.body._id},req.body)
     res.json(data)
 })
 
