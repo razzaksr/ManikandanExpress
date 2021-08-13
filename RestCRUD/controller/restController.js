@@ -3,6 +3,11 @@ const router=express.Router()
 const mongoose=require('mongoose')
 const model=mongoose.model('techie')
 
+router.get('/check',async(req,res)=>{
+    console.log("Client requested");
+    res.json("You are cnnected to express")
+})
+
 // List
 router.get('/',async (req,res)=>{
     //res.send('hi connected')
